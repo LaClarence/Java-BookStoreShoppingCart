@@ -23,12 +23,24 @@ public class ShoppingCart {
 		cartItems.add(cartItem);
 	}
 
+	public void updateCartItem(int index, int quantity) {
+		try {
+			CartItem cartItem = cartItems.get(index);
+			cartItem.setQuantity(quantity);
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			System.err.println("updateCartItem: Index out of bound");
+		}
+		
+		
+	}
+
 	public void deleteCartItem(int index) {
 		try {
 			cartItems.remove(index);
 		} catch (IndexOutOfBoundsException e) {
 			e.printStackTrace();
-			System.err.println("Index out of bound");
+			System.err.println("deleteCartItem: Index out of bound");
 		}
 	}
 
