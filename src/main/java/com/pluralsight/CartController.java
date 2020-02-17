@@ -9,9 +9,8 @@ import javax.servlet.http.HttpSession;
 import javax.inject.Inject;
 
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class CartController
  */
-
 public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DBConnection dbConnection;
@@ -57,7 +56,6 @@ public class CartController extends HttpServlet {
 				break;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -95,7 +93,7 @@ public class CartController extends HttpServlet {
 		HttpSession session = request.getSession();
 		int index = Integer.parseInt(request.getParameter("index"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		
+
 		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("cart");
 		shoppingCart.updateCartItem(index,quantity);
 	}
@@ -104,10 +102,10 @@ public class CartController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int index = Integer.parseInt(request.getParameter("index"));
-		
+
 		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("cart");
 		shoppingCart.deleteCartItem(index);
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
