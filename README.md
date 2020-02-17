@@ -5,15 +5,21 @@
 
 To run tomcat:
 
+```
 mvn clean install tomcat7:run
+````
 
-To launch unit Tests
+To launch unit Tests:
 
+```
 mvn -P integration verify
+```
 
-To launch specific Unit test
+To launch specific Unit test:
 
+```
 mvn -P integration  -Dit.test=Module2_* verify
+```
 
 
 ## Eclipse
@@ -26,12 +32,19 @@ File > Import... > Maven > Existing maven project
 
 Run > run configuration... > Maven buils > add
 
+to launch tomcat
+
+```
 name: Tomcat
 base directory: ${workspace_loc:/bookstore}
 goal: tomcat7:run
+```
 
+and to perform unit tests
+
+```
 name: Integration Tests
 base directory: ${workspace_loc:/bookstore}
 goal: -P integration verify
-
+```
 
