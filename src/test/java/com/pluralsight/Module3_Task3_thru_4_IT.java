@@ -20,7 +20,7 @@ public class Module3_Task3_thru_4_IT extends Mockito {
     @InjectMocks
     private ShoppingCart shoppingCart;
 
-    Method method = null;
+    Method method;
 
     @Before
     public void setUp() throws Exception {
@@ -28,7 +28,6 @@ public class Module3_Task3_thru_4_IT extends Mockito {
       try {
          method =  ShoppingCart.class.getMethod("updateCartItem", int.class, int.class);
       } catch (NoSuchMethodException e) {
-         //e.printStackTrace();
       }
     }
 
